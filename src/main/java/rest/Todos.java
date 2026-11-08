@@ -1,7 +1,10 @@
 package rest;
 
+import java.io.IOException;
 import java.util.List;
 
+import com.cistec.emed.service.FileStorageService;
+import jakarta.inject.Inject;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -17,7 +20,10 @@ import model.Todo;
  * This defines a REST controller, each method will be available under the "Classname/method" URI by convention
  */
 public class Todos extends Controller {
-    
+
+    @Inject
+    FileStorageService fileStorageService;
+
     /**
      * This defines templates available in src/main/resources/templates/Classname/method.html by convention
      */
@@ -26,7 +32,7 @@ public class Todos extends Controller {
         /**
          * This specifies that the Todos/index.html template does not take any parameter
          */
-        public static native TemplateInstance index();
+        public static native TemplateInstance index(List<String> fileNames);
         /**
          * This specifies that the Todos/todos.html template takes a todos parameter of type List&lt;Todo&gt;
          */
@@ -35,9 +41,10 @@ public class Todos extends Controller {
 
     // This overrides the convention and makes this method available at "/renarde"
     @Path("/renarde")
-    public TemplateInstance index() {
+    public TemplateInstance index() throws IOException  {
         // renders the Todos/index.html template
-        return Templates.index();
+        List<String> patientFileNames = fileStorageService.loadEmedDocuments("T001");
+        return Templates.index(patientFileNames);
     }
 
     public TemplateInstance todos() {

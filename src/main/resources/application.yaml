@@ -1,0 +1,4 @@
+#
+application:
+  storage:
+    base-directory: /Users/marco/tmp/emed-storage

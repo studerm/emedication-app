@@ -3,6 +3,12 @@
 {! This passes a title parameter to the main template !}
 {#title}Welcome{/title}
 
-<h1>Welcome to your Quarkus Renarde 🦊❤️ Application</h1> 
+<h1>Welcome to your Quarkus Renarde 🦊❤️ Application</h1>
+
+{#for fileName in fileNames}
+<div>
+    {fileName}
+</div>
+{/for}
 
 {/include}
