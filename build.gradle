@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'io.quarkus'
+    id 'io.freefair.lombok' version "8.4"
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+group = "com.cistec.emed"
+version = "1.0.0-SNAPSHOT"
+
+dependencies {
+    implementation enforcedPlatform ("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+    implementation 'io.quarkus:quarkus-arc'
+
+    // configuration
+    implementation 'io.quarkus:quarkus-config-yaml'
+
+    // UI
+    implementation 'io.quarkiverse.renarde:quarkus-renarde:3.1.10'
+
+    // testing
+    testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.quarkus:quarkus-junit5-mockito'
+    testImplementation 'io.rest-assured:rest-assured'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
