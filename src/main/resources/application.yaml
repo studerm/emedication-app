@@ -1,4 +1,25 @@
-#
+### quarkus properties ###
+quarkus:
+  application:
+    name: emedication-app
+  banner:
+    enabled: false
+  log:
+    level: INFO # DEBUG
+    console:
+      enable: true
+      format: "%d{yyyy-MM-dd HH:mm:ss} %-5p [%c{2.}]] (%t) %s%e%n"
+      level: DEBUG # DEBUG
+    syslog:
+      format: "%d{yyyy-MM-dd HH:mm:ss} %-5p [%c{2.}]] (%t) %s%e%n"
+  smallrye-openapi:
+    enable: true
+  swagger-ui:
+    always-include: true
+    enable: true
+    theme: monokai
+
+### application properties ###
 application:
   storage:
     base-directory: /Users/marco/tmp/emed-storage
