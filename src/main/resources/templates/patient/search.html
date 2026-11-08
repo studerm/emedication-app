@@ -1,0 +1,25 @@
+{#include main.html}
+{#title}CH:EMED - Patienten{/title}
+
+<h1>CH:EMED - Patienten</h1>
+
+<div>
+    <table>
+        <thead>
+            <th>PID (LINK)</th>
+            <th>Nachname</th>
+            <th>Vorname</th>
+        </thead>
+        <tbody>
+            {#for pat in patients}
+            <tr>
+                <td>{pat.pid}</td>
+                <td>{pat.lastName}</td>
+                <td>{pat.firstName}</td>
+            </tr>
+            {/for}
+        </tbody>
+    </table>
+</div>
+
+{/include}
