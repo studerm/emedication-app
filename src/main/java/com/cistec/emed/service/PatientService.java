@@ -19,5 +19,11 @@ public class PatientService {
     }
 
     // TODO: add method to find a specific patient
+    public PatientInfo getPatient(String pid) {
+        return TEST_PATIENTS.stream()
+                .filter(patient -> pid.equals(patient.pid()))
+                .findFirst()
+                .orElseThrow();
+    }
 
 }

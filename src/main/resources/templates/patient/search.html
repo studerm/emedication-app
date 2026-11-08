@@ -6,14 +6,14 @@
 <div>
     <table>
         <thead>
-            <th>PID (LINK)</th>
+            <th>PID</th>
             <th>Nachname</th>
             <th>Vorname</th>
         </thead>
         <tbody>
             {#for pat in patients}
             <tr>
-                <td>{pat.pid}</td>
+                <td><a href="{uri:PatientController.medicationList}?pid={pat.pid}">{pat.pid}</a></td>
                 <td>{pat.lastName}</td>
                 <td>{pat.firstName}</td>
             </tr>

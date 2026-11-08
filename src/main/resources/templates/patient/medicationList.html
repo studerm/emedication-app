@@ -1,0 +1,30 @@
+{#include main.html}
+{#title}CH:EMED - Medication List{/title}
+
+<h1>CH:EMED - Medication List {patient.pid}</h1>
+
+<div>
+    Patient: {patient.lastName}, {patient.firstName}
+</div>
+
+<h2>Dokumente</h2>
+<div>
+    <table>
+        <thead>
+        <th>Dateiname</th>
+        <th>Typ</th>
+        <th>Datum/Zeit</th>
+        </thead>
+        <tbody>
+        {#for doc in documents}
+        <tr>
+            <td>{doc}</td>
+            <td>?</td>
+            <td>?</td>
+        </tr>
+        {/for}
+        </tbody>
+    </table>
+</div>
+
+{/include}

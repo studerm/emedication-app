@@ -22,9 +22,6 @@
       <div><a href="{uri:Todos.index}">Index</a></div>
       <div><a href="{uri:Todos.todos}">Todos</a></div>
       <div><a href="{uri:PatientController.search}">Patienten-Suche</a></div>
-      {! {#if request.param['pid']} !}
-      {! <div><a href="{uri:PatientController.search}">{pid}</a></div> !}
-      {! {/if} !}
     </div>
     <!-- This inserts the body of your templates -->
     {#insert /}
